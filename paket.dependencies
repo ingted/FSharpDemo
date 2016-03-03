@@ -2,5 +2,5 @@ source https://nuget.org/api/v2
 
 nuget FAKE
 nuget NUnit
-nuget FSharp.Data
-nuget SQLProvider
+
+github fsprojects/FsUnit FsUnit.fs
