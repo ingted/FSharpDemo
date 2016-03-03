@@ -1,6 +1,5 @@
 source https://nuget.org/api/v2
 
 nuget FAKE
-nuget NUnit
-
-github fsprojects/FsUnit FsUnit.fs
+nuget XUnit
+nuget FsUnit

@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{866F9354
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpDemo.Test", "FSharpDemo.Test\FSharpDemo.Test.fsproj", "{6D96842C-A3DE-4F22-A5AE-F097267C31CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{4B008D62-434A-43AF-9398-084160724382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B008D62-434A-43AF-9398-084160724382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B008D62-434A-43AF-9398-084160724382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D96842C-A3DE-4F22-A5AE-F097267C31CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D96842C-A3DE-4F22-A5AE-F097267C31CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D96842C-A3DE-4F22-A5AE-F097267C31CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D96842C-A3DE-4F22-A5AE-F097267C31CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

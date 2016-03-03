@@ -1,4 +1,11 @@
 ﻿namespace FSharpDemo.Test
 
+open Xunit
+open FsUnit
+
 type Class1() = 
-    member this.X = "F#"
+
+    [<Fact>]
+    member this.X() =
+        let x = 4
+        x |> should equal 4
