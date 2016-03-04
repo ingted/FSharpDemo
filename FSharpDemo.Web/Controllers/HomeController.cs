@@ -12,7 +12,7 @@ namespace FSharpDemo.Web.Controllers
         {
             var products = Products.getProducts().ToList();
 
-            return View();
+            return View(products);
         }
 
         public ActionResult About()
