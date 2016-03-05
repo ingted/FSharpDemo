@@ -1,7 +1,9 @@
 {
-	"version": "1.0.0",
-	"name": "FSarpDemo",
-	"private": true,
-	"devDependencies": {
-	}
+  "version": "1.0.0",
+  "name": "FSarpDemo",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "^1.5.0"
+  }
 }
