@@ -2,8 +2,10 @@
 
 open System
 open Fake
+open Fake.Testing.NUnit3
 
 let buildDir = "./build/"
+let testDir = "./test/"
 let dataProj = !! "FSharpDemo.Data/FSharpDemo.Data.fsproj"
 let webProj = !! "FSharpDemo.Web/FSharpDemo.Web.csproj"
 let testProj = !! "FSharpDemo.Test/FSharpDemo.Test.fsproj"
@@ -22,12 +24,20 @@ Target "BuildWeb" (fun _ ->
 
 Target "BuildTest" (fun _ ->
     testProj
-        |> MSBuildDebug buildDir "Build"
+        |> MSBuildDebug testDir "Build"
         |> Log "Building Test Project"
+)
+
+Target "RunTests" (fun _ ->
+    !! (testDir + "/FSharpDemo.Test.dll")
+        |> NUnit3 (fun p ->
+            {p with
+                ShadowCopy = false; })
 )
 
 "BuildData"
     ==> "BuildWeb"
     ==> "BuildTest"
+    ==> "RunTests"
 
-RunTargetOrDefault "BuildTest"
+RunTargetOrDefault "RunTests"

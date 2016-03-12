@@ -1,11 +1,11 @@
 ﻿namespace FSharpDemo.Test
 
-open Xunit
+open NUnit.Framework
 open FsUnit
 
+[<TestFixture>]
 type Class1() = 
-
-    [<Fact>]
+    [<Test>]
     member this.X() =
         let x = 4
         x |> should equal 4
