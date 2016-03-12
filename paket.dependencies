@@ -4,3 +4,4 @@ nuget FAKE
 nuget NUnit
 nuget NUnit.Runners
 nuget FsUnit
+nuget canopy
