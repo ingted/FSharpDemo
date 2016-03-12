@@ -2,8 +2,6 @@
 open runner
 open System
 
-//let (¯\_(ツ)_/¯) = ignore
-
 start chrome
 
 let testUrl = "http://localhost:48213/"
@@ -11,11 +9,12 @@ let testUrl = "http://localhost:48213/"
 "Test home page loads" &&& fun _ ->
     url testUrl
 
-    "#name" == "Product Name"
-    "#count" == "Product Count"
-run()
+    "#name" == "Name"
+    "#count" == "Count"
 
 "Test data gets displayed" &&! skipped
+
+run()
 
 printfn "press [enter] to exit"
 Console.ReadLine() |> ignore
