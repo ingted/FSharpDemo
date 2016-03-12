@@ -4,9 +4,13 @@ open System
 
 start chrome
 
-"Test canopy" &&& fun _ ->
-    url "http://localhost:48213/"
+let testUrl = "http://localhost:48213/"
 
+"Test home page" &&& fun _ ->
+    url testUrl
+
+    "#name" == "Product Name"
+    "#count" == "Product Count"
 run()
 
 printfn "press [enter] to exit"
