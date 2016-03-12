@@ -58,7 +58,7 @@
   -->
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="Library1.fs" />
+    <Compile Include="Tests.fs" />
     <Content Include="App.config" />
     <None Include="paket.references" />
   </ItemGroup>
@@ -70,6 +70,13 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSharpDemo.Data\FSharpDemo.Data.fsproj">
+      <Name>FSharpDemo.Data</Name>
+      <Project>{4b008d62-434a-43af-9398-084160724382}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')">

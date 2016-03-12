@@ -34,6 +34,7 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
+test/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -202,3 +203,6 @@ docs/content/license.md
 docs/content/release-notes.md
 .fake
 docs/tools/FSharp.Formatting.svclog
+test/FSharpDemo.Test.dll
+
+TestResult.xml

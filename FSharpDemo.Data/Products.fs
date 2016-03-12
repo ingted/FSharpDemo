@@ -15,13 +15,17 @@ let [<Literal>] connectionString = @"Data Source=JONWOOD3FEB;Initial Catalog=FSh
 type private Sql = SqlDataConnection<connectionString>
 let private context = Sql.GetDataContext()
 
+context.DataContext.Log <- Console.Out
+
 type Product = {
     ProductId: int
     ProductName: string
     ProductCount: int
+    ProductPrice: string
 }
 
 let getProducts() = query { 
     for c in context.Product do
     where c.Product_count.HasValue
-    select (c.Product_id, c.Product_name, c.Product_count.Value) } |> Seq.map(fun (id, name, count) -> { ProductId = id; ProductName = name.Trim(); ProductCount = count })
+    select (c.Product_id, c.Product_name, c.Product_count.Value, c.Product_price) } |> Seq.map(fun (id, name, count, price) -> 
+        { ProductId = id; ProductName = name.Trim(); ProductCount = count; ProductPrice = price.ToString() })
