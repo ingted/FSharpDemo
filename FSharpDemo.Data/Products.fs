@@ -12,7 +12,7 @@ open Microsoft.FSharp.Data.TypeProviders
 
 let [<Literal>] connectionString = @"Data Source=JONWOOD3FEB;Initial Catalog=FSharpDemo;Integrated Security=True"
 
-type Sql = SqlDataConnection<connectionString>
+type private Sql = SqlDataConnection<connectionString>
 let private context = Sql.GetDataContext()
 
 type Product = {
