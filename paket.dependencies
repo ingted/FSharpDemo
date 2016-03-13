@@ -1,6 +1,7 @@
 source https://nuget.org/api/v2
 
 nuget FAKE
+nuget FAKE.IIS
 nuget NUnit
 nuget NUnit.Runners
 nuget FsUnit

@@ -1,12 +1,17 @@
 ﻿open canopy
 open runner
 open System
+open reporters
+
+//reporter <- new LiveHtmlReporter() :> IReporter
 
 start chrome
+pin FullScreen
 
 let testUrl = "http://localhost:48213/"
 
-"Test home page loads" &&& fun _ ->
+
+"Test home page loads" &&&& fun _ ->
     url testUrl
 
     "#name" == "Name"

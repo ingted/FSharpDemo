@@ -35,6 +35,7 @@ build/
 [Bb]in/
 [Oo]bj/
 test/
+web/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
