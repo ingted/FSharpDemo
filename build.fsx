@@ -56,20 +56,11 @@ Target "SendSlackMessage" (fun _ ->
 )
 
 Target "RunCanopyTests" (fun _ ->
-    let host = "localhost"
-    let port = 48213
-    let project = "FSharpDemo.Web"
-
-    let config = createConfigFile(project, 1, "iisexpress-template.config", webSiteDir, host, port)
-    let webSiteProcess = HostWebsite id config 1
-
     let result =
         ExecProcess (fun info ->
             info.FileName <- (testDir @@ "FSharpDemo.EndToEndTest.exe")
             info.WorkingDirectory <- testDir
         ) (System.TimeSpan.FromMinutes 5.)
-
-    ProcessHelper.killProcessById webSiteProcess.Id
  
     if result <> 0 then failwith "Failed result from canopy tests"
 )
@@ -80,5 +71,9 @@ Target "RunCanopyTests" (fun _ ->
     ==> "BuildEndToEndTest"
     ==> "RunTests"
     ==> "SendSlackMessage"
+
+"BuildWeb"
+    ==> "BuildEndToEndTest"
+    ==> "RunCanopyTests"
 
 RunTargetOrDefault "RunTests"

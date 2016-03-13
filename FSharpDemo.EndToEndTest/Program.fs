@@ -3,13 +3,10 @@ open runner
 open System
 open reporters
 
-//reporter <- new LiveHtmlReporter() :> IReporter
-
 start chrome
 pin FullScreen
 
 let testUrl = "http://localhost:48213/"
-
 
 "Test home page loads" &&&& fun _ ->
     url testUrl
@@ -21,7 +18,7 @@ let testUrl = "http://localhost:48213/"
 
 run()
 
-printfn "press [enter] to exit"
-Console.ReadLine() |> ignore
+//printfn "press [enter] to exit"
+//Console.ReadLine() |> ignore
 
 quit()
