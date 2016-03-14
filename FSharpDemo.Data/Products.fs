@@ -12,8 +12,8 @@ open Microsoft.FSharp.Data.TypeProviders
 
 let [<Literal>] connectionString = @"Data Source=JONWOOD3FEB;Initial Catalog=FSharpDemo;Integrated Security=True"
 
-type private Sql = SqlDataConnection<connectionString>
-let private context = Sql.GetDataContext()
+type Sql = SqlDataConnection<connectionString>
+let context = Sql.GetDataContext()
 
 context.DataContext.Log <- Console.Out
 
@@ -24,7 +24,7 @@ type Product = {
     ProductPrice: string
 }
 
-let private mapProduct product =
+let mapProduct product =
     let lastId = context.Product |> Seq.last |> fun p -> p.Product_id
 
     new Sql.ServiceTypes.Product
