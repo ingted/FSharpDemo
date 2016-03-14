@@ -3,7 +3,6 @@
 open NUnit.Framework
 open FsUnit
 
-[<TestFixture>]
 type Tests() = 
     [<Test>]
     member this.``getProducts returns two items``() =

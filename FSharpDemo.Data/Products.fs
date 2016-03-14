@@ -24,8 +24,23 @@ type Product = {
     ProductPrice: string
 }
 
+let private mapProduct product =
+    let lastId = context.Product |> Seq.last |> fun p -> p.Product_id
+
+    new Sql.ServiceTypes.Product
+        (Product_id = lastId + 1, Product_name = product.ProductName, Product_count = new Nullable<int>(product.ProductCount), Product_price = product.ProductPrice)
+
 let getProducts() = query { 
     for c in context.Product do
     where c.Product_count.HasValue
     select (c.Product_id, c.Product_name, c.Product_count.Value, c.Product_price) } |> Seq.map(fun (id, name, count, price) -> 
         { ProductId = id; ProductName = name.Trim(); ProductCount = count; ProductPrice = price.ToString() })
+
+let getProductById id = query {
+    for c in context.Product do
+    where (c.Product_id = id)
+    select (c.Product_id, c.Product_name, c.Product_count.Value, c.Product_price) } |> Seq.head |> (fun (id, name, count, price) -> 
+        { ProductId = id; ProductName = name.Trim(); ProductCount = count; ProductPrice = price.ToString() })
+
+let addNewProduct(product: Product) =
+    product |> mapProduct |> context.Product.InsertOnSubmit
