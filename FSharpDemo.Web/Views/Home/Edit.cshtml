@@ -1,0 +1,20 @@
+@model Products.Product
+
+@{
+    ViewBag.Title = "Edit Product";
+}
+
+<h1>Product</h1>
+<form>
+    <div class="form-group">
+        @Html.HiddenFor(p => p.ProductId)
+
+        @Html.LabelFor(p => p.ProductName)
+        @Html.EditorFor(p => p.ProductName)
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

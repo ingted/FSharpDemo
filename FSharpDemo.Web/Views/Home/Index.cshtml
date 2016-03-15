@@ -5,27 +5,33 @@
 }
 
 <h1>Products</h1>
-<div class="row">
-    <div class="col-md-4">
-        <h3 id="name">Name</h3>
-        @foreach (var product in Model)
-        {
-            <p id="prodName">@product.ProductName</p>
-        }
-    </div>
-    <div class="col-md-4">
-        <h3 id="count">Count</h3>
-        @foreach (var product in Model)
-        {
-            <p id="prodCount">@product.ProductCount</p>
-        }
-    </div>
-    <div class="col-md-4">
-        <h3 id="price">Price</h3>
-        @foreach (var product in Model)
-        {
-            <p id="prodPrice">$@product.ProductPrice</p>
-        }
-    </div>
-
-</div>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Count
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.ProductCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.ProductPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = product.ProductId })
+            </td>
+        </tr>
+    }
+</table>
