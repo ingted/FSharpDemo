@@ -28,7 +28,7 @@ let mapProduct product =
     let lastId = context.Product |> Seq.last |> fun p -> p.Product_id
 
     new Sql.ServiceTypes.Product
-        (Product_id = lastId + 1, Product_name = product.ProductName, Product_count = new Nullable<int>(product.ProductCount), Product_price = product.ProductPrice)
+        (Product_id = lastId + 1, Product_name = product.ProductName, Product_count = Nullable<int>(product.ProductCount), Product_price = product.ProductPrice)
 
 let getProducts() = query { 
     for c in context.Product do
@@ -44,6 +44,23 @@ let getProductById id = query {
 
 let addNewProduct product =
     product |> mapProduct |> context.Product.InsertOnSubmit
+
+    try
+        context.DataContext.SubmitChanges()
+    with
+        | ex -> printfn "Error when inserting - %s" ex.Message
+
+let updateProduct product = 
+    let currentProduct = query {
+        for c in context.Product do
+        where (c.Product_id = product.ProductId)
+        select c } 
+
+    let record = currentProduct |> Seq.head
+
+    record.Product_name <- product.ProductName
+    record.Product_count <- Nullable<int>(product.ProductCount)
+    record.Product_price <- product.ProductPrice
 
     try
         context.DataContext.SubmitChanges()
