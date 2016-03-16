@@ -17,6 +17,7 @@ let context = Sql.GetDataContext()
 
 context.DataContext.Log <- Console.Out
 
+[<CLIMutable>]
 type Product = {
     ProductId: int
     ProductName: string

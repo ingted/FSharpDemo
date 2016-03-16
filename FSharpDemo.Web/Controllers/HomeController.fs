@@ -9,17 +9,18 @@ open System.Web.Mvc.Ajax
 
 type HomeController() =
     inherit Controller()
+
     member this.Index () = 
-        let products = Products.getProducts() |> Seq.toList
-        this.View(products)
+        Products.getProducts() |> Seq.toList |> this.View
 
     member this.Edit id =
-        let product = Products.getProductById id
-        this.View(product)
+        Products.getProductById id |> this.View
 
-    [<HttpPut>]
-    member this.Edit id =
-        printfn ""
+    [<HttpPost>] 
+    member this.Edit product =
+        Products.updateProduct product
+
+        this.RedirectToAction("Index")
 
     member this.Add () =
         this.View()
