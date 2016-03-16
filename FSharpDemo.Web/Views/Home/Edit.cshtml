@@ -10,15 +10,15 @@
     @Html.HiddenFor(p => p.ProductId)
 
     <div class="form-group">
-        @Html.LabelFor(p => p.ProductName)
+        @Html.LabelFor(p => p.ProductName, "Name")
         @Html.EditorFor(p => p.ProductName)
     </div>
     <div class="form-group">
-        @Html.LabelFor(p => p.ProductCount)
+        @Html.LabelFor(p => p.ProductCount, "Count")
         @Html.EditorFor(p => p.ProductCount)
     </div>
     <div class="form-group">
-        @Html.LabelFor(p => p.ProductPrice)
+        @Html.LabelFor(p => p.ProductPrice, "Price")
         @Html.EditorFor(p => p.ProductPrice)
     </div>
     <div class="form-group">
