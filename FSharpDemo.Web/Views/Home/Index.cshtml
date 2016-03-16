@@ -30,7 +30,7 @@
                 @Html.DisplayFor(modelItem => product.ProductPrice)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = product.ProductId })
+                @Html.ActionLink("Edit", "Edit", new { id = product.ProductId }, new { id = "edit" })
             </td>
         </tr>
     }
