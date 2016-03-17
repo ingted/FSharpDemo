@@ -18,6 +18,12 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpDemo.Web", "FSharpDem
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpDemo.EndToEndTest", "FSharpDemo.EndToEndTest\FSharpDemo.EndToEndTest.fsproj", "{5A4914B8-124E-4026-B33E-65ACAB3BAA87}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{5DCC13E4-AC5E-4C92-8715-61588CF67379}"
+	ProjectSection(SolutionItems) = preProject
+		notes.md = notes.md
+		suave.fsx = suave.fsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

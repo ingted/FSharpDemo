@@ -43,7 +43,7 @@ let getProductById id = query {
     select (c.Product_id, c.Product_name, c.Product_count.Value, c.Product_price) } |> Seq.head |> (fun (id, name, count, price) -> 
         { ProductId = id; ProductName = name.Trim(); ProductCount = count; ProductPrice = price.ToString() })
 
-let addNewProduct product =
+let insertProduct product =
     product |> mapProduct |> context.Product.InsertOnSubmit
 
     try
