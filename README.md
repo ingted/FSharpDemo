@@ -10,3 +10,4 @@ The project has the following:
 
 Pending future updates:
 - Use Suave or Websharper for the web project
+- Use database in Azure
