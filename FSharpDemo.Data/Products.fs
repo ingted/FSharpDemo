@@ -25,7 +25,7 @@ type Product = {
     ProductPrice: string
 }
 
-let mapProduct product =
+let private mapProduct product =
     let lastId = context.Product |> Seq.last |> fun p -> p.Product_id
 
     new Sql.ServiceTypes.Product
@@ -52,12 +52,9 @@ let insertProduct product =
         | ex -> printfn "Error when inserting - %s" ex.Message
 
 let updateProduct product = 
-    let currentProduct = query {
-        for c in context.Product do
-        where (c.Product_id = product.ProductId)
-        select c } 
+    let currentProduct = getProductById product.ProductId
 
-    let record = currentProduct |> Seq.head
+    let record = currentProduct |> mapProduct
 
     record.Product_name <- product.ProductName
     record.Product_count <- Nullable<int>(product.ProductCount)
@@ -67,3 +64,13 @@ let updateProduct product =
         context.DataContext.SubmitChanges()
     with
         | ex -> printfn "Error when inserting - %s" ex.Message
+
+let deleteProduct product =
+    let currentProduct = getProductById product.ProductId
+
+    currentProduct |> mapProduct |> context.Product.DeleteOnSubmit
+
+    try
+        context.DataContext.SubmitChanges()
+    with
+        | ex -> printfn "Error when deleting - %s" ex.Message

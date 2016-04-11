@@ -20,6 +20,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpDemo.EndToEndTest", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{5DCC13E4-AC5E-4C92-8715-61588CF67379}"
 	ProjectSection(SolutionItems) = preProject
+		jira.fsx = jira.fsx
 		notes.md = notes.md
 		suave.fsx = suave.fsx
 	EndProjectSection
